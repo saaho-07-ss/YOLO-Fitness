@@ -1,0 +1,777 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>YOLO Fitness Abids</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="YOLO FITNESS — You Only Live Once. Gym in Abids, Hyderabad. Rated 4.9 from 471 Google reviews. Enquire about membership on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: dark industrial floor, hexagon motif from the real ceiling lights, one vivid equipment-green accent */
+:root{
+  --black:#070908;
+  --charcoal:#101412;
+  --graphite:#1b211e;
+  --forest:#0c2611;
+  --line:#26302b;
+  --green:#4ee23c;
+  --green-soft:#7cf06c;
+  --text:#f1f5f1;
+  --muted:#98a39b;
+  --display:"Bebas Neue","Oswald",Impact,"Arial Narrow",sans-serif;
+  --body:"Manrope","Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:max(16px,env(safe-area-inset-left,0px));
+  --gutr:max(16px,env(safe-area-inset-right,0px));
+  --max:1240px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--black);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--black)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding-left:var(--gut);padding-right:var(--gutr)}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:.92;margin:0;text-wrap:balance;text-transform:uppercase}
+h2{font-size:clamp(3rem,7vw,5.6rem)}
+h3{font-size:1.9rem;letter-spacing:.02em}
+p{margin:0}
+.g{color:var(--green)}
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-size:.75rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--green)}
+.eyebrow::before{content:"";width:14px;height:16px;background:var(--green);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.lede{color:var(--muted);font-size:1.075rem;max-width:56ch}
+section{position:relative}
+.pad{padding-block:clamp(72px,10vw,128px)}
+
+/* hex pattern taken from the gym's pillar wraps */
+.hexbg{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cpath d='M28 1 54 16v32L28 63 2 48V16zM28 63v34M0 97' fill='none' stroke='%234ee23c' stroke-opacity='.09' stroke-width='1.2'/%3E%3C/svg%3E");background-size:56px 97px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:0 1.6rem;font-weight:800;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;border:1.5px solid var(--green);transition:background .25s,color .25s,box-shadow .25s,transform .25s;white-space:nowrap}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-solid{background:var(--green);color:#041104}
+.btn-solid:hover{background:var(--green-soft);box-shadow:0 0 0 6px rgba(78,226,60,.14),0 10px 40px rgba(78,226,60,.35);transform:translateY(-2px)}
+.btn-ghost{color:var(--text);border-color:rgba(241,245,241,.35)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green);box-shadow:0 0 30px rgba(78,226,60,.18)}
+
+/* ticker */
+.ticker{background:var(--green);color:#041104;overflow:hidden;height:38px;display:flex;align-items:center;position:relative;z-index:51}
+.ticker-track{display:flex;width:max-content;animation:tick 42s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-group{display:flex;align-items:center}
+.ticker span{font-family:var(--display);font-size:1.15rem;letter-spacing:.12em;padding:0 1.4rem;white-space:nowrap;display:inline-flex;align-items:center;gap:1.4rem}
+.ticker span::after{content:"";width:9px;height:10px;background:#041104;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;transition:background .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent;margin-bottom:-76px}
+.nav.solid{background:rgba(7,9,8,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-color:var(--line)}
+.nav-in{height:76px;display:flex;align-items:center;justify-content:space-between;gap:1.5rem}
+.logo{font-family:var(--display);font-size:2rem;letter-spacing:.06em;line-height:1;display:flex;align-items:baseline;gap:.35rem}
+.logo b{font-weight:400;color:var(--green)}
+.logo small{font-size:1rem;letter-spacing:.3em;color:var(--text);opacity:.85}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a:not(.btn){font-size:.8rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,245,241,.82);position:relative;padding:.4rem 0}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--green);transition:right .3s}
+.nav-links a:not(.btn):hover,.nav-links a.active{color:var(--text)}
+.nav-links a:not(.btn):hover::after,.nav-links a.active::after{right:0}
+.nav .btn{min-height:44px;padding:0 1.2rem}
+.burger{display:none;width:46px;height:46px;position:relative;border:1px solid var(--line);background:rgba(7,9,8,.5)}
+.burger i{position:absolute;left:12px;right:12px;height:2px;background:var(--text);transition:transform .35s,opacity .25s,top .35s}
+.burger i:nth-child(1){top:15px}.burger i:nth-child(2){top:22px}.burger i:nth-child(3){top:29px}
+.menu-open .burger i:nth-child(1){top:22px;transform:rotate(45deg)}
+.menu-open .burger i:nth-child(2){opacity:0}
+.menu-open .burger i:nth-child(3){top:22px;transform:rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:49;background:var(--black);padding:calc(130px + env(safe-area-inset-top,0px)) var(--gutr) 40px var(--gut);display:flex;flex-direction:column;gap:.2rem;clip-path:circle(0 at calc(100% - 40px) 60px);transition:clip-path .55s cubic-bezier(.7,0,.2,1);visibility:hidden}
+.menu-open .mobile-menu{clip-path:circle(150% at calc(100% - 40px) 60px);visibility:visible}
+.mobile-menu a:not(.btn){font-family:var(--display);font-size:3rem;line-height:1.15;border-bottom:1px solid var(--line);padding:.35rem 0;display:flex;justify-content:space-between;align-items:center}
+.mobile-menu a:not(.btn):hover{color:var(--green)}
+.mobile-menu .btn{margin-top:1.6rem}
+
+/* hero */
+.hero{position:relative;min-height:min(100svh,940px);display:flex;align-items:flex-end;overflow:hidden;background:var(--black)}
+.hero-media{position:absolute;inset:0}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;animation:heroZoom 2.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes heroZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,9,8,.7) 0%,rgba(7,9,8,.15) 30%,rgba(7,9,8,.55) 62%,rgba(7,9,8,.97) 100%)}
+.hero-content{position:relative;z-index:2;width:100%;padding-block:150px 64px}
+.hero h1{font-size:clamp(4rem,13.5vw,9.6rem);line-height:.86}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln span{display:block;animation:rise 1s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .ln:nth-child(2) span{animation-delay:.12s}
+.hero h1 .ln:nth-child(3) span{animation-delay:.24s;color:var(--green);text-shadow:0 0 48px rgba(78,226,60,.35)}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+.hero .lede{color:#d5ddd6;margin-top:1.5rem;font-size:1.15rem;animation:fade .9s .5s both}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem;animation:fade .9s .65s both}
+.rating-strip{display:inline-flex;flex-wrap:wrap;align-items:center;gap:.4rem 1rem;margin-top:2.2rem;padding:.7rem 1rem;border:1px solid rgba(241,245,241,.16);background:rgba(7,9,8,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-size:.8rem;font-weight:700;letter-spacing:.14em;animation:fade .9s .8s both}
+.stars{color:var(--green);letter-spacing:.1em;font-size:1rem}
+.rating-strip .sep{width:1px;height:16px;background:rgba(241,245,241,.25)}
+@keyframes fade{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.scroll-cue{position:absolute;z-index:2;right:var(--gutr);bottom:64px;display:flex;flex-direction:column;align-items:center;gap:.8rem;font-size:.68rem;font-weight:700;letter-spacing:.3em;writing-mode:vertical-rl;color:var(--muted)}
+.scroll-cue::after{content:"";width:1px;height:64px;background:linear-gradient(var(--green),transparent);animation:cue 2s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* desktop hero: photo shown at a size the source holds sharply */
+@media (min-width:1000px){
+  .hero{align-items:center}
+  .hero-media{left:auto;width:58%}
+  .hero-media::after{background:linear-gradient(90deg,var(--black) 0%,rgba(7,9,8,.55) 22%,rgba(7,9,8,.05) 55%,rgba(7,9,8,.25) 100%),linear-gradient(180deg,rgba(7,9,8,.55) 0%,transparent 25%,transparent 70%,var(--black) 100%)}
+  .hero-content{padding-block:140px 90px}
+  .hero-text{max-width:720px}
+  .hero h1{font-size:clamp(4.5rem,7.4vw,7.4rem)}
+  .hero-photo-tag{position:absolute;z-index:2;right:var(--gutr);bottom:40px;font-size:.7rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(241,245,241,.7);display:flex;align-items:center;gap:.6rem}
+  .hero-photo-tag::before{content:"";width:28px;height:1px;background:var(--green)}
+  .scroll-cue{right:auto;left:calc(50% - 10px);bottom:24px;writing-mode:horizontal-tb;flex-direction:column}
+  .scroll-cue::after{height:40px}
+}
+@media (max-width:999px){.hero-photo-tag{display:none}}
+
+/* stats */
+.stats{background:var(--charcoal);border-block:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:2.6rem 1.6rem;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:.5rem;justify-content:center}
+.stat:first-child{border-left:0}
+.stat-num{font-family:var(--display);font-size:clamp(3.4rem,6vw,5rem);line-height:.9;color:var(--green);font-variant-numeric:tabular-nums}
+.stat-num.word{font-size:clamp(2rem,3.2vw,2.7rem);color:var(--text);line-height:.95}
+.stat-num.word em{font-style:normal;color:var(--green)}
+.stat-label{font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:860px){.stats-grid{grid-template-columns:1fr 1fr}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:420px){.stat{padding:2rem 1rem}}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(40px,6vw,88px);align-items:center}
+.about-media{position:relative}
+.about-media .frame{position:relative;overflow:hidden;border:1px solid var(--line)}
+.about-media img{width:100%;aspect-ratio:1474/1124;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.about-media:hover img{transform:scale(1.03)}
+.about-media::before{content:"";position:absolute;inset:-18px 18px 18px -18px;border:1.5px solid var(--green);opacity:.55;pointer-events:none}
+.about-cap{position:absolute;left:0;bottom:0;background:var(--black);padding:.8rem 1.1rem;font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);border-right:1px solid var(--line)}
+.about-cap b{color:var(--green);font-weight:700}
+.about-copy{display:flex;flex-direction:column;gap:1.5rem;min-width:0}
+.pillars{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);margin-top:.5rem}
+.pillars div{padding:1.1rem 0;border-bottom:1px solid var(--line);font-family:var(--display);font-size:1.6rem;letter-spacing:.04em;display:flex;align-items:center;gap:.7rem}
+.pillars div:nth-child(odd){border-right:1px solid var(--line)}
+.pillars div:nth-child(even){padding-left:1.2rem}
+.pillars div::before{content:"";width:8px;height:9px;background:var(--green);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr}.about-media::before{inset:-12px 12px 12px -12px}}
+@media (max-width:520px){.about-media{margin-left:12px}}
+
+/* programs */
+.programs{background:var(--charcoal)}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.5rem 3rem;margin-bottom:3rem}
+.sec-head > div{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.prog-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.prog{grid-column:span 2;background:var(--charcoal);padding:2rem 1.8rem 1.8rem;display:flex;flex-direction:column;gap:1rem;min-height:290px;position:relative;overflow:hidden;transition:background .35s}
+.prog:nth-child(4),.prog:nth-child(5){grid-column:span 3}
+.prog::before{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:220px;border:1.5px solid var(--green);opacity:.08;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);transition:opacity .4s,transform .6s}
+.prog:hover{background:var(--graphite)}
+.prog:hover::before{opacity:.35;transform:rotate(30deg)}
+.prog-icon{width:52px;height:52px;display:grid;place-items:center;border:1px solid var(--line);color:var(--green);transition:border-color .3s,box-shadow .3s}
+.prog:hover .prog-icon{border-color:var(--green);box-shadow:0 0 24px rgba(78,226,60,.25)}
+.prog-icon svg{width:24px;height:24px}
+.prog p{color:var(--muted);max-width:38ch}
+.prog-link{margin-top:auto;display:inline-flex;align-items:center;gap:.6rem;font-size:.75rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--text)}
+.prog-link svg{width:18px;height:18px;color:var(--green);transition:transform .3s}
+.prog:hover .prog-link svg{transform:translateX(6px)}
+@media (max-width:980px){.prog,.prog:nth-child(4),.prog:nth-child(5){grid-column:span 3}.prog:nth-child(5){grid-column:span 6}}
+@media (max-width:620px){.prog-grid{grid-template-columns:1fr}.prog,.prog:nth-child(4),.prog:nth-child(5){grid-column:auto;min-height:0}}
+
+/* facilities */
+.fac-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:16px}
+.fac{position:relative;overflow:hidden;border:1px solid var(--line);background:var(--charcoal);cursor:zoom-in}
+.fac img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.fac:hover img{transform:scale(1.045)}
+.fac::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(7,9,8,.92));pointer-events:none}
+.fac-cap{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:1.4rem 1.5rem;display:flex;flex-direction:column;gap:.35rem}
+.fac-cap h3{font-size:1.9rem}
+.fac-cap p{color:#c9d2ca;font-size:.92rem;max-width:44ch}
+.fac-big{grid-row:span 2;aspect-ratio:1474/1952}
+.fac-sm{aspect-ratio:4/3}
+.fac-sm img{object-position:50% 70%}
+.fac-list{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+.chip{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .95rem;border:1px solid var(--line);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#d0d8d1;transition:border-color .3s,color .3s}
+.chip:hover{border-color:var(--green);color:var(--green)}
+.chip::before{content:"";width:6px;height:7px;background:var(--green);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+@media (max-width:820px){.fac-grid{grid-template-columns:1fr}.fac-big{grid-row:auto;aspect-ratio:4/5}}
+
+/* gallery */
+.gallery{background:var(--charcoal)}
+.gal-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+.gal-item{position:relative;overflow:hidden;border:1px solid var(--line);background:var(--black);cursor:zoom-in;padding:0}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s}
+.gal-item:hover img{transform:scale(1.05)}
+.gal-item .zoom{position:absolute;right:12px;top:12px;width:40px;height:40px;display:grid;place-items:center;background:rgba(7,9,8,.75);border:1px solid var(--line);color:var(--green);opacity:0;transform:translateY(-6px);transition:opacity .3s,transform .3s}
+.gal-item:hover .zoom,.gal-item:focus-visible .zoom{opacity:1;transform:none}
+.gal-item .zoom svg{width:18px;height:18px}
+.gi-1{grid-column:span 7;aspect-ratio:1474/1124}
+.gi-2{grid-column:span 5;grid-row:span 2}
+.gi-3{grid-column:span 7;aspect-ratio:16/10}
+.gi-3 img{object-position:50% 35%}
+.gi-4{grid-column:span 12;aspect-ratio:21/9}
+.gi-4 img{object-position:50% 30%}
+@media (max-width:760px){.gal-grid{grid-template-columns:1fr 1fr}.gi-1,.gi-4{grid-column:span 2}.gi-2,.gi-3{grid-column:span 1;grid-row:auto;aspect-ratio:3/4}.gi-4{aspect-ratio:4/3}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(4,6,5,.96);display:flex;align-items:center;justify-content:center;padding:calc(64px + env(safe-area-inset-top,0px)) max(64px,env(safe-area-inset-right,0px)) calc(64px + env(safe-area-inset-bottom,0px)) max(64px,env(safe-area-inset-left,0px));opacity:0;transition:opacity .3s}
+.lb.show{opacity:1}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb-btn{position:absolute;width:52px;height:52px;display:grid;place-items:center;border:1px solid var(--line);background:rgba(16,20,18,.85);color:var(--text);transition:border-color .25s,color .25s}
+.lb-btn:hover{border-color:var(--green);color:var(--green)}
+.lb-btn svg{width:22px;height:22px}
+.lb-close{top:calc(14px + env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px))}
+.lb-prev{left:max(8px,env(safe-area-inset-left,0px));top:50%;transform:translateY(-50%)}
+.lb-next{right:max(8px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%)}
+.lb-count{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));font-size:.75rem;font-weight:700;letter-spacing:.24em;color:var(--muted);text-transform:uppercase;text-align:center;width:90%}
+@media (max-width:600px){.lb{padding-left:10px;padding-right:10px}.lb-prev,.lb-next{top:auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));transform:none}.lb-count{bottom:calc(70px + env(safe-area-inset-bottom,0px))}}
+
+/* join */
+.join{background:var(--forest);overflow:hidden;border-block:1px solid #1d4a22}
+.join-in{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:center}
+.join h2{font-size:clamp(3.4rem,8vw,6.6rem)}
+.join .lede{color:#b9cbbb;margin-top:1.4rem}
+.join-actions{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.join-actions .btn{width:100%;min-height:62px;justify-content:space-between}
+.join-note{font-size:.85rem;color:#9fb5a2;display:flex;gap:.6rem;align-items:flex-start}
+.join-note svg{width:18px;height:18px;flex:none;color:var(--green);margin-top:2px}
+.join-glow{position:absolute;right:-140px;top:50%;width:520px;height:600px;transform:translateY(-50%);border:2px solid var(--green);opacity:.12;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);pointer-events:none}
+@media (max-width:860px){.join-in{grid-template-columns:1fr}.join-actions .btn{white-space:normal;text-align:left}}
+
+/* reviews */
+.rev{display:grid;grid-template-columns:auto 1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.rev-score{display:flex;flex-direction:column;align-items:flex-start;gap:.6rem}
+.rev-big{font-family:var(--display);font-size:clamp(8rem,20vw,15rem);line-height:.8;color:var(--green);text-shadow:0 0 60px rgba(78,226,60,.25)}
+.rev-big small{font-size:.32em;color:var(--muted);letter-spacing:.04em}
+.rev-stars{display:flex;gap:6px}
+.rev-stars svg{width:30px;height:30px;color:var(--green)}
+.rev-copy{display:flex;flex-direction:column;gap:1.4rem;min-width:0}
+.rev-copy .count{font-family:var(--display);font-size:clamp(2.2rem,4vw,3.2rem);line-height:1}
+.rev-bar{display:flex;flex-direction:column;gap:.55rem;max-width:460px}
+.rev-bar div{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center;font-size:.8rem;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.rev-actions{display:flex;flex-wrap:wrap;gap:.9rem}
+@media (max-width:760px){.rev{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--charcoal);border-top:1px solid var(--line)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,5vw,72px);align-items:stretch}
+.contact-copy{display:flex;flex-direction:column;gap:2rem;min-width:0}
+.info{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.info-row{display:grid;grid-template-columns:44px 1fr;gap:1rem;padding:1.2rem 0;border-bottom:1px solid var(--line);align-items:start}
+.info-row .ic{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line);color:var(--green)}
+.info-row .ic svg{width:20px;height:20px}
+.info-row .k{font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.info-row .v{font-size:1.05rem;font-weight:600;overflow-wrap:anywhere}
+.phone-line{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .9rem}
+.copy-btn{font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--green);border:1px solid var(--line);padding:.3rem .6rem;transition:border-color .25s}
+.copy-btn:hover{border-color:var(--green)}
+.contact-actions{display:flex;flex-wrap:wrap;gap:.8rem}
+.map-card{position:relative;overflow:hidden;border:1px solid var(--line);min-height:420px;display:flex;flex-direction:column;justify-content:flex-end;background:var(--black)}
+.map-card canvas{position:absolute;inset:0;width:100%;height:100%}
+.map-pin{position:absolute;left:50%;top:44%;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;gap:.6rem;pointer-events:none}
+.map-pin .hx{width:58px;height:66px;background:var(--green);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);display:grid;place-items:center;color:#041104;font-family:var(--display);font-size:1.2rem;letter-spacing:.04em;box-shadow:0 0 40px rgba(78,226,60,.5)}
+.map-pin .pulse{position:absolute;top:33px;left:50%;width:58px;height:58px;margin-left:-29px;margin-top:-29px;border-radius:50%;border:2px solid var(--green);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{from{transform:scale(.6);opacity:.9}to{transform:scale(3);opacity:0}}
+.map-foot{position:relative;z-index:2;background:linear-gradient(transparent,rgba(7,9,8,.95) 40%);padding:3rem 1.5rem 1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1rem}
+.map-foot .k{font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.map-foot .v{font-family:var(--display);font-size:1.8rem;line-height:1}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}.map-card{min-height:340px}}
+
+/* footer */
+footer{background:var(--black);border-top:1px solid var(--line);padding-block:72px 32px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1.3fr;gap:3rem}
+.foot-grid > div{display:flex;flex-direction:column;gap:1rem;min-width:0}
+.foot-tag{font-family:var(--display);font-size:2.2rem;line-height:1;letter-spacing:.03em}
+.foot-h{font-size:.7rem;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--green)}
+.foot-links{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1rem}
+.foot-links a,.foot-grid address{color:var(--muted);font-style:normal;font-size:.95rem;transition:color .25s}
+.foot-links a:hover{color:var(--text)}
+.social{display:flex;gap:.6rem}
+.social a{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line);color:var(--text);transition:border-color .25s,color .25s}
+.social a:hover{border-color:var(--green);color:var(--green)}
+.social svg{width:20px;height:20px}
+.foot-bottom{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.8rem;color:var(--muted)}
+@media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}.foot-grid > div:first-child{grid-column:span 2}}
+@media (max-width:520px){.foot-grid{grid-template-columns:1fr}.foot-grid > div:first-child{grid-column:auto}}
+
+/* floating whatsapp */
+.wa-float{position:fixed;z-index:45;right:max(18px,calc(env(safe-area-inset-right,0px) + 12px));bottom:calc(18px + env(safe-area-inset-bottom,0px));width:60px;height:60px;display:grid;place-items:center;background:var(--green);color:#041104;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);transition:transform .3s,background .3s}
+.wa-float:hover{transform:scale(1.08);background:var(--green-soft)}
+.wa-float svg{width:28px;height:28px}
+
+/* reveal (only applied to content below the first screen) */
+.rv{transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.pre{opacity:0;transform:translateY(34px)}
+
+/* responsive nav */
+@media (max-width:1060px){.nav-links{display:none}.burger{display:block}}
+@media (min-width:1061px){.mobile-menu{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
+  .ticker-track{animation:none}
+  .rv.pre{opacity:1;transform:none}
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.15-1.35A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.06.8.82-2.98-.2-.31a8.2 8.2 0 1 1 6.92 3.82Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.16.25-.63.8-.78.97-.14.16-.29.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.13-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.31c-.23.25-.86.84-.86 2.04 0 1.2.88 2.37 1 2.53.12.17 1.73 2.64 4.2 3.7.58.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.46-.6 1.66-1.18.2-.57.2-1.07.15-1.17-.06-.11-.22-.17-.47-.29Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-nav" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m3 11 19-9-9 19-2-8-8-2Z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.6" cy="6.4" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-dumbbell" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6.5 6.5v11M3.5 9v6M17.5 6.5v11M20.5 9v6M6.5 12h11"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M13 2 4 14h7l-1 8 9-12h-7z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M3 12h4l2-5 4 10 2-5h6"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m3 17 6-6 4 4 8-8M15 7h6v6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M12 11v6M12 7.5v.01"/></symbol>
+  </defs>
+</svg>
+
+<div class="ticker" aria-label="Highlights">
+  <div class="ticker-track">
+    <div class="ticker-group"><span>★ 4.9 Star Rated Fitness Club</span><span>471+ Customer Reviews</span><span>You Only Live Once</span><span>Train Hard. Stay Consistent.</span><span>Your Fitness. Your Rules.</span><span>Built for Results</span><span>Abids · Hyderabad</span></div>
+    <div class="ticker-group" aria-hidden="true"><span>★ 4.9 Star Rated Fitness Club</span><span>471+ Customer Reviews</span><span>You Only Live Once</span><span>Train Hard. Stay Consistent.</span><span>Your Fitness. Your Rules.</span><span>Built for Results</span><span>Abids · Hyderabad</span></div>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#home" class="logo" aria-label="YOLO Fitness home"><b>YOLO</b><small>FITNESS</small></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#facilities">Facilities</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#membership">Membership</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-solid" data-wa="membership" href="#" target="_blank" rel="noopener">Join Now</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><i></i><i></i><i></i></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mmenu">
+  <a href="#home">Home <svg width="22" height="22"><use href="#i-arrow"/></svg></a>
+  <a href="#about">About <svg width="22" height="22"><use href="#i-arrow"/></svg></a>
+  <a href="#programs">Programs <svg width="22" height="22"><use href="#i-arrow"/></svg></a>
+  <a href="#facilities">Facilities <svg width="22" height="22"><use href="#i-arrow"/></svg></a>
+  <a href="#gallery">Gallery <svg width="22" height="22"><use href="#i-arrow"/></svg></a>
+  <a href="#membership">Membership <svg width="22" height="22"><use href="#i-arrow"/></svg></a>
+  <a href="#contact">Contact <svg width="22" height="22"><use href="#i-arrow"/></svg></a>
+  <a class="btn btn-solid" data-wa="membership" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>Join Now on WhatsApp</a>
+</div>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-media" id="heroMedia">
+    <img src="img/aisle.jpg" alt="The YOLO FITNESS gym floor in Abids under its white hexagon ceiling lights, with black and green strength machines on both sides" fetchpriority="high" width="1474" height="1952">
+  </div>
+  <div class="wrap hero-content">
+    <div class="hero-text">
+      <span class="eyebrow" style="animation:fade .8s .1s both">Abids · Hyderabad</span>
+      <h1 style="margin-top:1.1rem">
+        <span class="ln"><span>You Only</span></span>
+        <span class="ln"><span>Live Once.</span></span>
+        <span class="ln"><span>Train Like It.</span></span>
+      </h1>
+      <p class="lede">Build strength. Build discipline. Build the version of yourself you always wanted.</p>
+      <div class="hero-ctas">
+        <a href="#facilities" class="btn btn-ghost">Explore YOLO <svg><use href="#i-arrow"/></svg></a>
+        <a data-wa="membership" href="#" target="_blank" rel="noopener" class="btn btn-solid"><svg><use href="#i-wa"/></svg>Join the Gym</a>
+      </div>
+      <div class="rating-strip"><span class="stars">★★★★★</span><span>4.9/5</span><span class="sep"></span><span>471 Customer Reviews</span></div>
+    </div>
+  </div>
+  <div class="hero-photo-tag">Inside YOLO Fitness, Abids</div>
+  <a href="#stats" class="scroll-cue" aria-label="Scroll down">Scroll</a>
+</section>
+
+<section class="stats" id="stats">
+  <div class="wrap stats-grid">
+    <div class="stat rv"><div class="stat-num" data-count="4.9" data-dec="1" data-suffix="★">4.9★</div><div class="stat-label">Google Rating</div></div>
+    <div class="stat rv"><div class="stat-num" data-count="471" data-suffix="+">471+</div><div class="stat-label">Member Reviews</div></div>
+    <div class="stat rv"><div class="stat-num" data-count="100" data-suffix="%">100%</div><div class="stat-label">Commitment to Fitness</div></div>
+    <div class="stat rv"><div class="stat-num word">Stronger <em>Every</em> Day</div><div class="stat-label">Our Philosophy</div></div>
+  </div>
+</section>
+
+<section class="pad" id="about">
+  <div class="wrap about-grid">
+    <figure class="about-media rv" style="margin:0">
+      <div class="frame">
+        <img src="img/yolowall.jpg" alt="The green YOLO — You Only Live Once wall at the YOLO FITNESS reception" loading="lazy" width="1474" height="1124">
+        <figcaption class="about-cap">The <b>YOLO</b> wall · Reception</figcaption>
+      </div>
+    </figure>
+    <div class="about-copy rv">
+      <span class="eyebrow">About YOLO</span>
+      <h2>More than a gym.<br><span class="g">It's a lifestyle.</span></h2>
+      <p class="lede">Four letters on our wall say it all: You Only Live Once. YOLO FITNESS is where discipline, strength, confidence and consistency come together, on the 5th floor of PM House in Abids.</p>
+      <p class="lede">Walk in under the hexagon lights, pick up the weight, and put in the work. Every session counts, because you only get one shot at being your strongest.</p>
+      <div class="pillars"><div>Discipline</div><div>Strength</div><div>Confidence</div><div>Consistency</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad programs hexbg" id="programs">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="eyebrow">Programs</span><h2>Train with<br><span class="g">purpose.</span></h2></div>
+      <p class="lede">Ask us on WhatsApp which program fits your goal, and we will help you get started.</p>
+    </div>
+    <div class="prog-grid">
+      <article class="prog rv">
+        <div class="prog-icon"><svg><use href="#i-bolt"/></svg></div>
+        <h3>Strength &amp; Conditioning</h3>
+        <p>Build strength, power, and endurance.</p>
+        <a class="prog-link" data-wa="membership" href="#" target="_blank" rel="noopener">Ask about it <svg><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="prog rv">
+        <div class="prog-icon"><svg><use href="#i-dumbbell"/></svg></div>
+        <h3>Weight Training</h3>
+        <p>Train with purpose and build muscle.</p>
+        <a class="prog-link" data-wa="membership" href="#" target="_blank" rel="noopener">Ask about it <svg><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="prog rv">
+        <div class="prog-icon"><svg><use href="#i-user"/></svg></div>
+        <h3>Personal Training</h3>
+        <p>Focused coaching tailored to your fitness goals.</p>
+        <a class="prog-link" data-wa="pt" href="#" target="_blank" rel="noopener">Enquire on WhatsApp <svg><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="prog rv">
+        <div class="prog-icon"><svg><use href="#i-heart"/></svg></div>
+        <h3>Cardio &amp; Endurance</h3>
+        <p>Improve stamina and cardiovascular fitness.</p>
+        <a class="prog-link" data-wa="membership" href="#" target="_blank" rel="noopener">Ask about it <svg><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="prog rv">
+        <div class="prog-icon"><svg><use href="#i-trend"/></svg></div>
+        <h3>Body Transformation</h3>
+        <p>Build a stronger, healthier, more confident version of yourself.</p>
+        <a class="prog-link" data-wa="membership" href="#" target="_blank" rel="noopener">Ask about it <svg><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="facilities">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="eyebrow">Facilities</span><h2>Step onto<br><span class="g">the floor.</span></h2></div>
+      <p class="lede">Black and green machines, mirrored walls and a ceiling of hexagon lights. This is what you will train in.</p>
+    </div>
+    <div class="fac-grid">
+      <button class="fac fac-big rv" data-open="1" aria-label="Open photo: strength floor">
+        <img src="img/hexfloor.jpg" alt="Plate-loaded strength machines, benches and a dumbbell rack beneath hexagon ceiling lights" loading="lazy" width="1474" height="1952">
+        <div class="fac-cap"><h3>Strength Floor</h3><p>Plate-loaded machines, benches and a full dumbbell rack under the hexagon lights.</p></div>
+      </button>
+      <button class="fac fac-sm rv" data-open="2" aria-label="Open photo: cardio and machines">
+        <img src="img/cardio.jpg" alt="Spin bikes and selectorised machines in front of a mirrored wall with green hexagon pillars" loading="lazy" width="1474" height="1862">
+        <div class="fac-cap"><h3>Cardio &amp; Machines</h3><p>Spin bikes and pin-loaded machines along the mirror wall.</p></div>
+      </button>
+      <button class="fac fac-sm rv" data-open="3" aria-label="Open photo: functional zone">
+        <img src="img/aisle.jpg" alt="Functional training zone with wall bars, battle ropes and medicine balls" loading="lazy" width="1474" height="1952" style="object-position:20% 72%">
+        <div class="fac-cap"><h3>Functional Zone</h3><p>Wall bars, battle ropes and medicine balls for conditioning work.</p></div>
+      </button>
+    </div>
+    <div class="fac-list rv">
+      <span class="chip">Free weights</span><span class="chip">Dumbbell rack</span><span class="chip">Plate-loaded machines</span><span class="chip">Pin-loaded machines</span><span class="chip">Spin bikes</span><span class="chip">Battle ropes</span><span class="chip">Mirrored training walls</span>
+    </div>
+  </div>
+</section>
+
+<section class="pad gallery" id="gallery">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div><span class="eyebrow">Gallery</span><h2>Inside<br><span class="g">YOLO.</span></h2></div>
+      <p class="lede">Tap any photo to see it larger.</p>
+    </div>
+    <div class="gal-grid">
+      <button class="gal-item gi-1 rv" data-open="0" aria-label="Open photo 1: the YOLO wall"><img src="img/yolowall.jpg" alt="YOLO — You Only Live Once wall" loading="lazy" width="1474" height="1124"><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+      <button class="gal-item gi-2 rv" data-open="1" aria-label="Open photo 2: strength floor"><img src="img/hexfloor.jpg" alt="Strength floor under hexagon lights" loading="lazy" width="1474" height="1952"><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+      <button class="gal-item gi-3 rv" data-open="2" aria-label="Open photo 3: cardio and machines"><img src="img/cardio.jpg" alt="Spin bikes and machines along the mirror wall" loading="lazy" width="1474" height="1862"><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+      <button class="gal-item gi-4 rv" data-open="3" aria-label="Open photo 4: main training aisle"><img src="img/aisle.jpg" alt="The main training aisle with hexagon lights stretching the length of the gym" loading="lazy" width="1474" height="1952"><span class="zoom"><svg><use href="#i-zoom"/></svg></span></button>
+    </div>
+  </div>
+</section>
+
+<section class="pad join hexbg" id="membership">
+  <div class="join-glow"></div>
+  <div class="wrap join-in">
+    <div class="rv">
+      <span class="eyebrow">Membership</span>
+      <h2 style="margin-top:1rem">Your next level<br><span class="g">starts here.</span></h2>
+      <p class="lede">Your goals won't wait. Take the first step towards a stronger, healthier, more confident you.</p>
+    </div>
+    <div class="join-actions rv">
+      <a class="btn btn-solid" data-wa="membership" href="#" target="_blank" rel="noopener"><span style="display:inline-flex;gap:.6rem;align-items:center"><svg><use href="#i-wa"/></svg>Enquire About Membership</span><svg><use href="#i-arrow"/></svg></a>
+      <a class="btn btn-ghost" data-wa="visit" href="#" target="_blank" rel="noopener"><span style="display:inline-flex;gap:.6rem;align-items:center"><svg><use href="#i-wa"/></svg>Book a Visit</span><svg><use href="#i-arrow"/></svg></a>
+      <p class="join-note"><svg><use href="#i-info"/></svg>Plans and timings are shared on WhatsApp. Message us and the team will reply with the details.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="reviews">
+  <div class="wrap rev">
+    <div class="rev-score rv">
+      <span class="eyebrow">Google Reviews</span>
+      <div class="rev-big">4.9<small> / 5</small></div>
+      <div class="rev-stars" aria-label="4.9 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
+    </div>
+    <div class="rev-copy rv">
+      <div class="count">471 <span class="g">customer reviews</span></div>
+      <p class="lede">Rated 4.9 out of 5 on Google by the people who train here. Read what members say in their own words on our Google listing.</p>
+      <div class="rev-actions">
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=YOLO+FITNESS+PM+House+Abids+Hyderabad" target="_blank" rel="noopener"><svg><use href="#i-star"/></svg>Read reviews on Google</a>
+        <a class="btn btn-solid" data-wa="visit" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>See it yourself</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-copy rv">
+      <div style="display:flex;flex-direction:column;gap:1rem"><span class="eyebrow">Location &amp; Contact</span><h2>Find your<br><span class="g">strong place.</span></h2></div>
+      <div class="info">
+        <div class="info-row"><span class="ic"><svg><use href="#i-pin"/></svg></span><div><div class="k">Address</div><address class="v" style="font-style:normal">YOLO FITNESS<br>5th Floor, PM House, Road, Chirag Ali Ln, Mahesh Nagar, Abids, Hyderabad, Telangana 500001</address></div></div>
+        <div class="info-row"><span class="ic"><svg><use href="#i-phone"/></svg></span><div><div class="k">Phone &amp; WhatsApp</div><div class="v phone-line"><span id="phoneText">062813 01639</span><button class="copy-btn" id="copyPhone" type="button">Copy</button></div></div></div>
+        <div class="info-row"><span class="ic"><svg><use href="#i-star"/></svg></span><div><div class="k">Rating</div><div class="v">4.9 <span class="g">★</span> | 471 Reviews</div></div></div>
+      </div>
+      <div class="contact-actions">
+        <a class="btn btn-solid" data-wa="visit" href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg>WhatsApp Us</a>
+        <a class="btn btn-ghost" href="tel:+916281301639"><svg><use href="#i-phone"/></svg>Call Now</a>
+      </div>
+    </div>
+    <a class="map-card rv" href="https://www.google.com/maps/dir/?api=1&destination=YOLO+FITNESS+PM+House+Chirag+Ali+Lane+Abids+Hyderabad+500001" target="_blank" rel="noopener" aria-label="Get directions to YOLO FITNESS on Google Maps">
+      <canvas id="mapCanvas" aria-hidden="true"></canvas>
+      <div class="map-pin"><span class="pulse"></span><span class="hx">YOLO</span></div>
+      <div class="map-foot">
+        <div><div class="k">Abids · Hyderabad 500001</div><div class="v">PM House, 5th Floor</div></div>
+        <span class="btn btn-solid"><svg><use href="#i-nav"/></svg>Get Directions</span>
+      </div>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#home" class="logo"><b>YOLO</b><small>FITNESS</small></a>
+        <div class="foot-tag">Train hard. <span class="g">Live strong.</span></div>
+        <a class="btn btn-solid" data-wa="membership" href="#" target="_blank" rel="noopener" style="align-self:flex-start"><svg><use href="#i-wa"/></svg>Chat on WhatsApp</a>
+      </div>
+      <div>
+        <div class="foot-h">Explore</div>
+        <nav class="foot-links" aria-label="Footer">
+          <a href="#home">Home</a><a href="#about">About</a><a href="#programs">Programs</a><a href="#facilities">Facilities</a><a href="#gallery">Gallery</a><a href="#membership">Membership</a><a href="#reviews">Reviews</a><a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <div class="foot-h">Visit</div>
+        <address>5th Floor, PM House, Road, Chirag Ali Ln, Mahesh Nagar, Abids, Hyderabad, Telangana 500001</address>
+        <a href="tel:+916281301639" style="color:var(--text);font-weight:700">062813 01639</a>
+        <div class="social">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+          <a data-wa="membership" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom"><span>© <span id="yr">2026</span> YOLO FITNESS, Hyderabad. All rights reserved.</span><span>You Only Live Once.</span></div>
+  </div>
+</footer>
+
+<a class="wa-float" data-wa="membership" href="#" target="_blank" rel="noopener" aria-label="Message YOLO FITNESS on WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <img id="lbImg" alt="">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Close"><svg><use href="#i-x"/></svg></button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous photo"><svg><use href="#i-left"/></svg></button>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="Next photo"><svg><use href="#i-right"/></svg></button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
+<script>
+(function(){
+  // WhatsApp click-to-chat
+  var WA = "916281301639";
+  var MSG = {
+    membership: "Hello YOLO FITNESS! I'm interested in your membership plans. Could you please share the details?",
+    visit: "Hello YOLO FITNESS! I'd like to schedule a visit to your gym. Please let me know the available timings.",
+    pt: "Hello YOLO FITNESS! I'm interested in personal training. Could you please provide more information?"
+  };
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(MSG[a.dataset.wa] || MSG.membership);
+  });
+
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  // nav state
+  var nav = document.getElementById("nav");
+  var heroMedia = document.getElementById("heroMedia");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function onScroll(){
+    var y = window.scrollY;
+    nav.classList.toggle("solid", y > 40);
+    if(!reduce && y < window.innerHeight) heroMedia.style.transform = "translate3d(0," + (y*0.18) + "px,0)";
+  }
+  window.addEventListener("scroll", onScroll, {passive:true}); onScroll();
+
+  // active link
+  var links = document.querySelectorAll(".nav-links a[href^='#']");
+  var secs = ["home","about","programs","facilities","gallery","membership","contact"].map(function(id){return document.getElementById(id)});
+  if("IntersectionObserver" in window){
+    var so = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(l){ l.classList.toggle("active", l.getAttribute("href") === "#" + e.target.id); });
+        }
+      });
+    },{rootMargin:"-45% 0px -50% 0px"});
+    secs.forEach(function(s){ s && so.observe(s); });
+  }
+
+  // mobile menu
+  var burger = document.getElementById("burger");
+  function setMenu(open){
+    document.body.classList.toggle("menu-open", open);
+    burger.setAttribute("aria-expanded", open);
+    burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  burger.addEventListener("click", function(){ setMenu(!document.body.classList.contains("menu-open")); });
+  document.querySelectorAll("#mmenu a").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
+
+  // reveal: only items starting below the first screen get hidden, then revealed
+  var rvs = document.querySelectorAll(".rv");
+  if("IntersectionObserver" in window && !reduce){
+    var vh = window.innerHeight;
+    var ro = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          var el = e.target, sib = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+          el.style.transitionDelay = Math.min(sib, 5) * 80 + "ms";
+          el.classList.remove("pre"); ro.unobserve(el);
+        }
+      });
+    },{threshold:.12, rootMargin:"0px 0px -6% 0px"});
+    rvs.forEach(function(el){
+      if(el.getBoundingClientRect().top > vh){ el.classList.add("pre"); ro.observe(el); }
+    });
+  }
+
+  // count-up
+  function countUp(el){
+    var target = parseFloat(el.dataset.count), dec = +(el.dataset.dec || 0), suf = el.dataset.suffix || "";
+    var t0 = null, dur = 1600;
+    function step(t){
+      if(!t0) t0 = t;
+      var p = Math.min((t - t0)/dur, 1), e = 1 - Math.pow(1-p, 3);
+      el.textContent = (target*e).toFixed(dec) + suf;
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if("IntersectionObserver" in window && !reduce){
+    var co = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ countUp(e.target); co.unobserve(e.target); } });
+    },{threshold:.6});
+    document.querySelectorAll("[data-count]").forEach(function(el){ co.observe(el); });
+  }
+
+  // lightbox
+  var photos = [
+    {src:"img/yolowall.jpg", cap:"The YOLO wall · Reception"},
+    {src:"img/hexfloor.jpg", cap:"Strength floor"},
+    {src:"img/cardio.jpg", cap:"Cardio & machines"},
+    {src:"img/aisle.jpg", cap:"Main training aisle"}
+  ];
+  var lb = document.getElementById("lb"), lbImg = document.getElementById("lbImg"), lbCount = document.getElementById("lbCount");
+  var cur = 0, lastFocus = null;
+  function show(i){
+    cur = (i + photos.length) % photos.length;
+    lbImg.src = photos[cur].src; lbImg.alt = photos[cur].cap;
+    lbCount.textContent = (cur+1) + " / " + photos.length + " · " + photos[cur].cap;
+  }
+  function openLb(i){
+    lastFocus = document.activeElement; show(i); lb.hidden = false;
+    requestAnimationFrame(function(){ lb.classList.add("show"); });
+    document.body.style.overflow = "hidden"; document.getElementById("lbClose").focus();
+  }
+  function closeLb(){
+    lb.classList.remove("show"); document.body.style.overflow = "";
+    setTimeout(function(){ lb.hidden = true; }, 250); if(lastFocus) lastFocus.focus();
+  }
+  document.querySelectorAll("[data-open]").forEach(function(b){ b.addEventListener("click", function(){ openLb(+b.dataset.open); }); });
+  document.getElementById("lbClose").addEventListener("click", closeLb);
+  document.getElementById("lbPrev").addEventListener("click", function(){ show(cur-1); });
+  document.getElementById("lbNext").addEventListener("click", function(){ show(cur+1); });
+  lb.addEventListener("click", function(e){ if(e.target === lb) closeLb(); });
+  document.addEventListener("keydown", function(e){
+    if(lb.hidden){ if(e.key === "Escape" && document.body.classList.contains("menu-open")) setMenu(false); return; }
+    if(e.key === "Escape") closeLb();
+    if(e.key === "ArrowLeft") show(cur-1);
+    if(e.key === "ArrowRight") show(cur+1);
+  });
+  var tx = null;
+  lb.addEventListener("touchstart", function(e){ tx = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener("touchend", function(e){
+    if(tx === null) return; var dx = e.changedTouches[0].clientX - tx;
+    if(Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); tx = null;
+  });
+
+  // copy phone
+  var cp = document.getElementById("copyPhone");
+  cp.addEventListener("click", function(){
+    var txt = "+91 62813 01639";
+    function done(){ cp.textContent = "Copied"; setTimeout(function(){ cp.textContent = "Copy"; }, 1600); }
+    function fallback(){
+      var r = document.createRange(); r.selectNodeContents(document.getElementById("phoneText"));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); cp.textContent = "Selected";
+      setTimeout(function(){ cp.textContent = "Copy"; }, 1600);
+    }
+    try{ navigator.clipboard.writeText(txt).then(done, fallback); }catch(err){ fallback(); }
+  });
+
+  // stylised street-grid map (Google map iframes cannot load here; the card links to Google Maps)
+  var cv = document.getElementById("mapCanvas");
+  function drawMap(){
+    var r = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1;
+    cv.width = r.width*d; cv.height = r.height*d;
+    var c = cv.getContext("2d"); c.scale(d,d);
+    var W = r.width, H = r.height;
+    c.fillStyle = "#0b0e0c"; c.fillRect(0,0,W,H);
+    // hex grid
+    c.strokeStyle = "rgba(78,226,60,0.06)"; c.lineWidth = 1;
+    var s = 22, hh = Math.sqrt(3)*s;
+    for(var y=-hh; y<H+hh; y+=hh){ for(var x=-s*3, k=0; x<W+s*3; x+=s*1.5, k++){
+      var oy = (k%2) ? hh/2 : 0; c.beginPath();
+      for(var i=0;i<6;i++){ var a=Math.PI/3*i; var px=x+s*Math.cos(a), py=y+oy+s*Math.sin(a); i?c.lineTo(px,py):c.moveTo(px,py); }
+      c.closePath(); c.stroke();
+    }}
+    // roads
+    function road(pts, w, col){ c.strokeStyle = col; c.lineWidth = w; c.lineCap="round"; c.beginPath(); pts.forEach(function(p,i){ i?c.lineTo(p[0]*W,p[1]*H):c.moveTo(p[0]*W,p[1]*H); }); c.stroke(); }
+    road([[-.1,.62],[.35,.5],[.6,.46],[1.1,.32]], 14, "#1c2420");
+    road([[.42,-.1],[.47,.44],[.55,1.1]], 12, "#1c2420");
+    road([[-.1,.2],[.3,.28],[.47,.44]], 7, "#171e1a");
+    road([[.6,.46],[.78,.8],[.86,1.1]], 7, "#171e1a");
+    road([[.1,1.05],[.2,.75],[.35,.5]], 6, "#171e1a");
+    road([[.7,-.1],[.66,.2],[.6,.46]], 6, "#171e1a");
+    road([[.47,.44],[.6,.46]], 4, "rgba(78,226,60,.55)");
+  }
+  drawMap(); var rt; window.addEventListener("resize", function(){ clearTimeout(rt); rt = setTimeout(drawMap, 150); });
+})();
+</script>
+
+</body></html>
